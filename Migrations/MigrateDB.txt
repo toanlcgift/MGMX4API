@@ -1,0 +1,5 @@
+Update tu DB
+- Xoa het class trong thu muc Migrations
+- Visual studio 2017 --> Tools --> Nuget Package Manager --> package manager console
+- cd den thu muc VietIS.Payslip\PayslipWebApp\PayslipWebApp
+- dotnet ef migrations add InitDatabase

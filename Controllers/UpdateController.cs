@@ -11,14 +11,15 @@ namespace MMX4.WebAPI.Controllers
         [HttpPost]
         public IEnumerable<DownloadURL> GetDownloadLink([FromBody]CheckVersionRequest request)
         {
-            using (SQLite.SQLiteConnection connection = new SQLite.SQLiteConnection(Resources.DB))
-            {
-                var currentVersion = connection.Table<Version>().OrderByDescending(x => x.Value).FirstOrDefault().Value;
-                if (request.Version < currentVersion)
-                    return connection.Table<DownloadURL>().ToList();
-                else
-                    return null;
-            }
+            //using (SQLite.SQLiteConnection connection = new SQLite.SQLiteConnection(Resources.DB))
+            //{
+            //    var currentVersion = connection.Table<Version>().OrderByDescending(x => x.Value).FirstOrDefault().Value;
+            //    if (request.Version < currentVersion)
+            //        return connection.Table<DownloadURL>().ToList();
+            //    else
+            //        return null;
+            //}
+            return null;
         }
     }
 }
