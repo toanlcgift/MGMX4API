@@ -24,6 +24,10 @@ namespace MMX4.WebAPI.Controllers
             string folderName = "Upload";
             string webRootPath = _hostingEnvironment.WebRootPath;
             string newPath = Path.Combine(webRootPath, folderName);
+            if (!Directory.Exists(newPath))
+            {
+                Directory.CreateDirectory(newPath);
+            }
             var fullPath = Path.Combine(newPath, fileName);
             var stream = new FileStream(fullPath, FileMode.Open);
             var mimeType = "application/x-msdownload";

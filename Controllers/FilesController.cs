@@ -29,6 +29,10 @@ namespace MMX4.WebAPI.Controllers
             string folderName = "Upload";
             string webRootPath = _hostingEnvironment.WebRootPath;
             string newPath = Path.Combine(webRootPath, folderName);
+            if (!Directory.Exists(newPath))
+            {
+                Directory.CreateDirectory(newPath);
+            }
             return Directory.GetFiles(newPath);
         }
 
@@ -40,6 +44,10 @@ namespace MMX4.WebAPI.Controllers
             string folderName = "Upload";
             string webRootPath = _hostingEnvironment.WebRootPath;
             string newPath = Path.Combine(webRootPath, folderName);
+            if (!Directory.Exists(newPath))
+            {
+                Directory.CreateDirectory(newPath);
+            }
             System.IO.File.Delete(Path.Combine(newPath, filename));
         }
     }
