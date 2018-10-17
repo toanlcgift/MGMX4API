@@ -227,6 +227,8 @@ namespace MMX4.WebAPI
                     template: "{controller}/{action=Index}/{id?}");
             });
 
+            app.UseDeveloperExceptionPage();
+
             app.UseSpa(spa =>
             {
                 // To learn more about options for serving an Angular SPA from ASP.NET Core,
