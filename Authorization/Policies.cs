@@ -65,7 +65,7 @@ namespace MMX4.WebAPI.Authorization
         public static ApplicationPermission ManageRoles = new ApplicationPermission("Manage Roles", "roles.manage", RolesPermissionGroupName, "Permission to create, delete and modify roles");
         public static ApplicationPermission AssignRoles = new ApplicationPermission("Assign Roles", "roles.assign", RolesPermissionGroupName, "Permission to assign roles to users");
         public static ApplicationPermission UploadRoles = new ApplicationPermission("Upload Roles", "roles.upload", RolesPermissionGroupName, "Permission to upload files roles to users");
-        public static ApplicationPermission DeleteRoles = new ApplicationPermission("Upload Roles", "roles.upload", RolesPermissionGroupName, "Permission to delete files roles to users");
+        public static ApplicationPermission DeleteRoles = new ApplicationPermission("Delete Roles", "roles.delete", RolesPermissionGroupName, "Permission to delete files roles to users");
 
         static ApplicationPermissions()
         {
