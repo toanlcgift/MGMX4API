@@ -61,7 +61,4 @@
       </ResolvedFileToPublish>
     </ItemGroup>
   </Target>
-<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-  <Exec Command="pwd&#xD;&#xA;ls&#xD;&#xA;mkdir wwwroot&#xD;&#xA;chmod 777 wwwroot&#xD;&#xA;cd wwwroot&#xD;&#xA;mkdir Upload&#xD;&#xA;chmod 777 Upload" />
-</Target>
 </Project>
