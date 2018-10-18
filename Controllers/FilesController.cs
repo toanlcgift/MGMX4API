@@ -26,9 +26,14 @@ namespace MMX4.WebAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-
-            var direct = Directory.GetCurrentDirectory();
-            return Directory.GetFiles(direct);
+            string folderName = "Upload";
+            string webRootPath = Directory.GetCurrentDirectory();
+            string newPath = Path.Combine(webRootPath, folderName);
+            if (!Directory.Exists(newPath))
+            {
+                Directory.CreateDirectory(newPath);
+            }
+            return Directory.GetFiles(newPath);
         }
 
         // DELETE api/values/5
@@ -37,7 +42,7 @@ namespace MMX4.WebAPI.Controllers
         public void Delete(string filename)
         {
             string folderName = "Upload";
-            string webRootPath = _hostingEnvironment.WebRootPath;
+            string webRootPath = Directory.GetCurrentDirectory();
             string newPath = Path.Combine(webRootPath, folderName);
             if (!Directory.Exists(newPath))
             {

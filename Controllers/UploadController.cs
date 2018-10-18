@@ -26,7 +26,7 @@ namespace MMX4.WebAPI.Controllers
             {
                 var file = Request.Form.Files[0];
                 string folderName = "Upload";
-                string webRootPath = _hostingEnvironment.WebRootPath;
+                string webRootPath = Directory.GetCurrentDirectory();
                 string newPath = Path.Combine(webRootPath, folderName);
                 if (!Directory.Exists(newPath))
                 {
