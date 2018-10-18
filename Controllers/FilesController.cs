@@ -24,16 +24,12 @@ namespace MMX4.WebAPI.Controllers
 
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<string> Get()
         {
             string folderName = "Upload";
             string webRootPath = _hostingEnvironment.WebRootPath;
-            string newPath = Path.Combine(webRootPath, folderName);
-            if (!Directory.Exists(newPath))
-            {
-                Directory.CreateDirectory(newPath);
-            }
-            return Directory.GetFiles(newPath);
+
+            return webRootPath;
         }
 
         // DELETE api/values/5
