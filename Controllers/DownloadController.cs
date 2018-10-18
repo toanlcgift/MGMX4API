@@ -22,7 +22,7 @@ namespace MMX4.WebAPI.Controllers
         public FileResult downloadFile(string fileName)
         {
             string folderName = "Upload";
-            string webRootPath = _hostingEnvironment.WebRootPath;
+            string webRootPath = Directory.GetCurrentDirectory();
             string newPath = Path.Combine(webRootPath, folderName);
             if (!Directory.Exists(newPath))
             {
