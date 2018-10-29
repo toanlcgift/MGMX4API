@@ -46,7 +46,7 @@ namespace MMX4.WebAPI
         {
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                options.UseSqlite("Data Source=data.db");
+                options.UseSqlite("Data Source=../../data.db");
                 SQLitePCL.Batteries.Init();
                 options.UseOpenIddict();
             });
