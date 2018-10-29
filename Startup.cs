@@ -47,7 +47,6 @@ namespace MMX4.WebAPI
             services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationDbContext>(options =>
             {
                 options.UseNpgsql("Host=ec2-54-247-86-89.eu-west-1.compute.amazonaws.com;Database=da413nnuh2vrnc;Username=hgvrxgavmhqlpg;Password=62edb8fcbbb8547de5b84f0c7d9c0b57d203580b61accaba75278510702d017e;Port=5432");
-                SQLitePCL.Batteries.Init();
                 options.UseOpenIddict();
             });
 
