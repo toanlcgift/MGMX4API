@@ -28,6 +28,7 @@ namespace MMX4.WebAPI
                 }
                 catch (Exception ex)
                 {
+                    File.WriteAllText("log.txt", ex.Message);
                     var logger = services.GetRequiredService<ILogger<Program>>();
                 }
             }
