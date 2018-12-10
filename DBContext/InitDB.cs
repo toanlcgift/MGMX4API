@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MMX4.WebAPI.Authorization;
+using MMX4.WebAPI.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,8 @@ namespace MMX4.WebAPI.DBContext
         Task<Tuple<bool, string[]>> UpdateRoleAsync(ApplicationRole role, IEnumerable<string> claims);
         Task<Tuple<bool, string[]>> UpdateUserAsync(ApplicationUser user);
         Task<Tuple<bool, string[]>> UpdateUserAsync(ApplicationUser user, IEnumerable<string> roles);
+        Task<DownloadURL> GetURL();
+        Task<bool> UpdateURL(string value);
     }
     public interface IDatabaseInitializer
     {

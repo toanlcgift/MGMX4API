@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MMX4.WebAPI.Authorization;
 using MMX4.WebAPI.DBContext;
+using MMX4.WebAPI.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -377,6 +378,19 @@ namespace MMX4.WebAPI.Service
         {
             var result = await _roleManager.DeleteAsync(role);
             return Tuple.Create(result.Succeeded, result.Errors.Select(e => e.Description).ToArray());
+        }
+
+        public async Task<DownloadURL> GetURL()
+        {
+            return await _context.DownloadURLs.FirstOrDefaultAsync();
+        }
+
+        public async Task<bool> UpdateURL(string value)
+        {
+            var obj =await _context.DownloadURLs.FirstOrDefaultAsync();
+            obj.URL = value;
+            _context.Update(obj);
+            return true;
         }
     }
 }

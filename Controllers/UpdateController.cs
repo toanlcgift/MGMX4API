@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MMX4.WebAPI.DBContext;
 using MMX4.WebAPI.Model;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MMX4.WebAPI.Controllers
 {
@@ -8,18 +10,23 @@ namespace MMX4.WebAPI.Controllers
     [ApiController]
     public class UpdateController : ControllerBase
     {
-        [HttpPost]
-        public IEnumerable<DownloadURL> GetDownloadLink([FromBody]CheckVersionRequest request)
+        private readonly IAccountManager _accountManager;
+
+        public UpdateController(IAccountManager accountManager)
         {
-            //using (SQLite.SQLiteConnection connection = new SQLite.SQLiteConnection(Resources.DB))
-            //{
-            //    var currentVersion = connection.Table<Version>().OrderByDescending(x => x.Value).FirstOrDefault().Value;
-            //    if (request.Version < currentVersion)
-            //        return connection.Table<DownloadURL>().ToList();
-            //    else
-            //        return null;
-            //}
-            return null;
+            _accountManager = accountManager;
+        }
+
+        [HttpGet]
+        public async Task<DownloadURL> GetDownloadLink()
+        {
+            return await _accountManager.GetURL();
+        }
+
+        [HttpPost]
+        public async Task<bool> UpdateLink([FromBody]string request)
+        {
+            return await _accountManager.UpdateURL(request);
         }
     }
 }
