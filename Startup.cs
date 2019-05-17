@@ -44,17 +44,17 @@ namespace MMX4.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-            {
-                options.UseSqlite("Data Source=data.db");
-                SQLitePCL.Batteries.Init();
-                options.UseOpenIddict();
-            });
             //services.AddDbContext<ApplicationDbContext>(options =>
             //{
-            //    options.UseNpgsql("Host=ec2-79-125-110-209.eu-west-1.compute.amazonaws.com;Database=dev67aqrnc4uoo;Username=wrbgtvkwrqlalt;Password=ae412e770401227dc49345f6542a6b7c4def2d928b6bc03ed1bc96d03e7af3b0;Port=5432");
+            //    options.UseSqlite("Data Source=data.db");
+            //    SQLitePCL.Batteries.Init();
             //    options.UseOpenIddict();
             //});
+            services.AddDbContext<ApplicationDbContext>(options =>
+            {
+                options.UseNpgsql("Host=ec2-79-125-4-72.eu-west-1.compute.amazonaws.com;Database=ddd7nvg1su021q;Username=mnsczqytpcfdmc;Password=fe7970362235a30a5c20ba971defc7be784169b6afb3ac3c48a95f25519a831d;Port=5432");
+                options.UseOpenIddict();
+            });
 
             // add identity
             services.AddIdentity<ApplicationUser, ApplicationRole>()
